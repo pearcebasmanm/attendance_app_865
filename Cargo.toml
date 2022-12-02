@@ -1,0 +1,12 @@
+[package]
+name = "attendance_app_865"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+leptos = "0.0.14"
+# serde = "1.0.148"
+# tokio = "1.22.0"
