@@ -7,8 +7,8 @@ body {
     padding: 0 10px
 }
 button {
-    width: 10%;
+    width: 20%;
 }
 h1, h2, h3 {
-    line-height: 1.2
+    line-height: 1.2;
 }

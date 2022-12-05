@@ -7,6 +7,6 @@ edition = "2021"
 
 
 [dependencies]
-leptos = "0.0.14"
+leptos = "0.0.19"
 # serde = "1.0.148"
 # tokio = "1.22.0"
