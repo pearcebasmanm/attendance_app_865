@@ -1,7 +1,8 @@
 use leptos::*;
+mod gsheets;
 mod counter;
-mod name_input;
 use counter::{Counter, CounterProps};
+mod name_input;
 use name_input::{NameInput, NameInputProps};
 
 fn main() {

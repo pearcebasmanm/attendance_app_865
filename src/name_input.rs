@@ -1,4 +1,5 @@
 use leptos::*;
+use crate::gsheets;
 
 const TAB: u32 = 9;
 
@@ -7,10 +8,7 @@ pub fn NameInput(cx: Scope) -> Element {
     let (name, set_name) = create_signal(cx, String::new());
     let (suggestion, set_suggestion) = create_signal(cx, String::new());
 
-    let names = vec![
-        "Max Pearce Basman",
-        "Scott William Pearce"
-    ];
+    let names = gsheets::get_names();
 
     view!{
         cx,
@@ -18,17 +16,18 @@ pub fn NameInput(cx: Scope) -> Element {
         <p>{name}</p>
         <input
             placeholder="Input Name Here"
-            on:change=move |ev| set_name(event_target_value(&ev))
             on:keydown=move |ev| {
-                let suggest = names
+                let written = event_target_value(&ev);
+                let suggested = names
                     .iter()
-                    .find(|name| name.contains(&event_target_value(&ev)));
+                    .find(|name| name.contains(&written));
                 
-                if let Some(name) = suggest {
-                    set_name(name.to_string());
-                    set_suggestion(name.to_string());
+                if let Some(suggested) = suggested {     
                     if ev.key_code() == TAB {
+                        set_name(suggested.to_string());
                         set_suggestion("Accepted Suggestion".to_string());
+                    } else {
+                        set_suggestion(suggested.to_string());
                     }
                 }
             }
