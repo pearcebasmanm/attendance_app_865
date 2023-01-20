@@ -2,11 +2,12 @@ pub fn get_names() -> Vec<String> {
     vec![
         "Max Pearce Basman",
         "Scott William Pearce",
-        "Vasant Suresh"
+        "Vasant Suresh",
+        "Ryan Dajani",
     ]
     .into_iter()
     .map(|name| name.to_string())
-    .collect::<Vec<String>>()
+    .collect()
 }
 
 pub fn _add_name(_name: String) {
